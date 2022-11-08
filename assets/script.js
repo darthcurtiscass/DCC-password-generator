@@ -5,17 +5,11 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 
-const random = Math.floor(Math.random() * 3);
+//const random = Math.floor(Math.random() * 3);
 
-const getRandomPass = () => {
-  if (random === 0) {
-    return 'a';
-  } else if (random === 1) {
-    return 'b';
-  } else if (random === 2) {
-    return 'c'
-  }
-}
+var charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$!&|';
+var genPassword = ''   
+
 
 // variable
 function generatePassword() {
@@ -24,9 +18,12 @@ function generatePassword() {
     if (passwordLength >= 8 && passwordLength <= 120) {
     prompt('Would you like your password to contain letters and numbers? yes or no?');
       if ('yes') {
-        console.log("I'm lost");
-      } else if ('no') {
-        prompt("I guess you don't like security");
+        for (let i = 1; i <= passwordLength; i++) {
+          var char = Math.floor(Math.random()
+            * charset.length);
+          genPassword += charset.charAt(char);
+      };
+      return genPassword;
       }
     }
 };
