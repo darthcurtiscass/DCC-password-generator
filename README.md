@@ -6,7 +6,7 @@ The generate password button can be clicked to trigger a prompt, which will ask 
 
 ## Link
 
-
+https://darthcurtiscass.github.io/DCC-password-generator/
 
 ## Screenshot
 
