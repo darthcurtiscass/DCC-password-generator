@@ -26,6 +26,8 @@ function generatePassword() {
           genPassword += charset.charAt(pass);
       }
       return genPassword;
+          } else if (promptAnswer === 'no') {
+            alert("I guess you don't like secure passwords.");
           }
     } else {
       alert("I guess you don't like secure passwords.");
