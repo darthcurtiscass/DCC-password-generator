@@ -27,7 +27,7 @@ function generatePassword() {
       }
       return genPassword;
           } else if (promptAnswer === 'no') {
-            alert("I guess you don't like secure passwords.");
+            alert("I guess you don't like secure passwords. Password must contain Uppercase, lowercase, and special characters.");
           }
     } else {
       alert("I guess you don't like secure passwords.");
