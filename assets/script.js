@@ -6,7 +6,8 @@ var genPassword = ''
 
 // calling generatePassword and populating the password into the text field with id of #password
 function writePassword() {
-  var password = generatePassword(); // =password
+  genPassword = ''
+  generatePassword(); // =password
   var passwordText = document.querySelector("#password");
 
   passwordText.value = genPassword;
@@ -19,7 +20,7 @@ function validateLength(){
     return tempLength
   }
   var tryAgain = confirm("Do you want to try length again?")
-  if(!tryAgain){
+  if(!tryAgain) {
     return false
   }
   return validateLength()
@@ -42,7 +43,7 @@ function generatePassword(){
     }}
   }
 
-function possibleCharacters(){
+function possibleCharacters() {
   var uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   var lowercase = 'abcdefghijklmnopqrstuvwxyz'
   var numbers = '0123456789'
