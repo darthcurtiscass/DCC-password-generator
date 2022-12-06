@@ -9,17 +9,15 @@ function writePassword() {
   genPassword = ''
   generatePassword(); // =password
   var passwordText = document.querySelector("#password");
-
   passwordText.value = genPassword;
-
 }
 // checking the length answered to the prompt and returning the length
 function validateLength(){
-  var tempLength = prompt("whats the length?")
+  var tempLength = prompt("How many characters would you like in your password?")
   if(tempLength > 7 && tempLength < 129) {
     return tempLength
   }
-  var tryAgain = confirm("Do you want to try length again?")
+  var tryAgain = confirm("Please enter a valid length. Length must be between 8 and 128 characters")
   if(!tryAgain) {
     return false
   }
@@ -30,11 +28,12 @@ function generatePassword(){
   var length = validateLength()
   // console.log("Creating password length variable: ", length)
   if(!length){
-    alert("Invalid password length. length must be between 8 and 128 characters")
+    alert("Invalid password length. Length must be between 8 and 128 characters")
     return
   }
   var Characters = possibleCharacters()
   if(!Characters) {
+    console.log(Characters)
     alert("You didn't select any characters")
   } else {
     for (let i = 0; i < length; i++) {
@@ -42,39 +41,29 @@ function generatePassword(){
           genPassword += Characters.charAt(pass)
     }}
   }
-
+//Function to store possible character options. Checks if user wants certain types of characters and adds their choices to the empty string of possible characters.
 function possibleCharacters() {
   var uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   var lowercase = 'abcdefghijklmnopqrstuvwxyz'
   var numbers = '0123456789'
   var spec = '@#$!&|%^*(){}/?`~<>'
   var base = ""  
-  var wantsUpper = confirm("Do you want uppercase?")
+  var wantsUpper = confirm("Do you want UPPERCASE letters?")
   if(wantsUpper){
     base += uppercase
   }
-  var wantsLower = confirm("Lower?")
+  var wantsLower = confirm("Would you like lowercase letters?")
   if(wantsLower) {
     base += lowercase
   }
-  var wantsNumbers = confirm("Numbers?")
+  var wantsNumbers = confirm("Would you like Numbers?")
   if(wantsNumbers) {
     base += numbers
   }
-  var wantsSpec = confirm("Special characters?")
+  var wantsSpec = confirm("Would you like special characters?")
   if(wantsSpec) {
-   return base += spec
-  } 
-  console.log(base)
-  //add: if statements for both numbers and spec
-  
-  if(base.length === 0){
-    var tryAgain = confirm("Do you want to try base again?")
-    if(!tryAgain){
-      return
-    }
-    return possibleCharacters()  
-  }
+    base += spec
+  } return base
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
